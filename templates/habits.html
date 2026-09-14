@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <h2>🔥 Add New Habit</h2>
+        <form method="POST">
+            <input type="text" name="habit_name" placeholder="e.g. Exercise for 20 mins" required>
+            <button type="submit" class="btn">Add Habit</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>📋 Your Habits</h2>
+        {% if habits %}
+            {% for habit in habits %}
+                <p style="margin-bottom: 10px;">
+                    {% if habit['done'] == 1 %}
+                        <span style="text-decoration: line-through; color: gray;">{{ habit['habit_name'] }}</span> ✅
+                        <a href="/habits/reset/{{ habit['id'] }}" style="margin-left: 10px; font-size: 13px;">Reset</a>
+                    {% else %}
+                        {{ habit['habit_name'] }}
+                        <a href="/habits/complete/{{ habit['id'] }}" class="btn" style="padding: 4px 10px; font-size: 12px; margin-left: 10px;">Done</a>
+                    {% endif %}
+                    <a href="/habits/delete/{{ habit['id'] }}" style="color: red; margin-left: 10px; font-size: 13px;">Delete</a>
+                </p>
+            {% endfor %}
+        {% else %}
+            <p>No habits yet. Add one above!</p>
+        {% endif %}
+    </div>
+{% endblock %}

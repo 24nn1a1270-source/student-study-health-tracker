@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <h2>📊 Your Progress Dashboard</h2>
+        {% if profile %}
+            <p>Welcome back, <strong>{{ profile['name'] }}</strong>! Here's your summary:</p>
+        {% else %}
+            <p>Welcome! Set up your <a href="/profile">profile</a> to personalize this dashboard.</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h2>📖 Study Summary</h2>
+        <p>Total Study Hours: <strong>{{ total_study_hours }} hrs</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>✅ Task Summary</h2>
+        <p>Completed: <strong>{{ completed_tasks }} / {{ total_tasks }}</strong> tasks</p>
+    </div>
+
+    <div class="card">
+        <h2>💧 Water Summary</h2>
+        <p>Average Glasses per Day: <strong>{{ avg_water }}</strong></p>
+        <p>Total Days Logged: <strong>{{ total_water_logs }}</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>🔥 Habit Summary</h2>
+        <p>Completed Today: <strong>{{ completed_habits }} / {{ total_habits }}</strong> habits</p>
+    </div>
+{% endblock %}

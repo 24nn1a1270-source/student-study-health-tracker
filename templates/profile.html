@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <h2>👤 Student Profile</h2>
+        <form method="POST">
+            <label>Full Name</label>
+            <input type="text" name="name" value="{{ profile['name'] if profile else '' }}" required>
+
+            <label>Roll Number</label>
+            <input type="text" name="roll_number" value="{{ profile['roll_number'] if profile else '' }}" required>
+
+            <label>Course</label>
+            <input type="text" name="course" value="{{ profile['course'] if profile else '' }}" required>
+
+            <label>Year</label>
+            <input type="text" name="year" value="{{ profile['year'] if profile else '' }}" required>
+
+            <br><br>
+            <button type="submit" class="btn">Save Profile</button>
+        </form>
+    </div>
+
+    {% if profile %}
+    <div class="card">
+        <h2>✅ Saved Profile</h2>
+        <p><strong>Name:</strong> {{ profile['name'] }}</p>
+        <p><strong>Roll Number:</strong> {{ profile['roll_number'] }}</p>
+        <p><strong>Course:</strong> {{ profile['course'] }}</p>
+        <p><strong>Year:</strong> {{ profile['year'] }}</p>
+    </div>
+    {% endif %}
+{% endblock %}
