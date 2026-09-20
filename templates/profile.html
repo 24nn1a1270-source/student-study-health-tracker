@@ -1,33 +1,100 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="card">
-        <h2>👤 Student Profile</h2>
-        <form method="POST">
-            <label>Full Name</label>
-            <input type="text" name="name" value="{{ profile['name'] if profile else '' }}" required>
 
-            <label>Roll Number</label>
-            <input type="text" name="roll_number" value="{{ profile['roll_number'] if profile else '' }}" required>
+<div class="card profile-card">
 
-            <label>Course</label>
-            <input type="text" name="course" value="{{ profile['course'] if profile else '' }}" required>
+    <h2>👤 Student Profile</h2>
 
-            <label>Year</label>
-            <input type="text" name="year" value="{{ profile['year'] if profile else '' }}" required>
+    <p class="page-description">
+        Add your student details to personalize your Student Tracker.
+    </p>
 
-            <br><br>
-            <button type="submit" class="btn">Save Profile</button>
-        </form>
+    <form method="POST">
+
+        <label for="name">Full Name</label>
+        <input
+            type="text"
+            id="name"
+            name="name"
+            value="{{ profile['name'] if profile else '' }}"
+            placeholder="Enter your full name"
+            required
+        >
+
+        <label for="roll_number">Roll Number</label>
+        <input
+            type="text"
+            id="roll_number"
+            name="roll_number"
+            value="{{ profile['roll_number'] if profile else '' }}"
+            placeholder="Enter your roll number"
+            required
+        >
+
+        <label for="course">Course</label>
+        <input
+            type="text"
+            id="course"
+            name="course"
+            value="{{ profile['course'] if profile else '' }}"
+            placeholder="Example: B.Tech IT"
+            required
+        >
+
+        <label for="year">Year</label>
+        <input
+            type="text"
+            id="year"
+            name="year"
+            value="{{ profile['year'] if profile else '' }}"
+            placeholder="Example: 3rd Year"
+            required
+        >
+
+        <br>
+
+        <button type="submit" class="btn">
+            💾 Save Profile
+        </button>
+
+    </form>
+
+</div>
+
+
+{% if profile %}
+
+<div class="card saved-profile">
+
+    <h2>✅ Saved Profile</h2>
+
+    <div class="profile-details">
+
+        <div class="profile-detail">
+            <span>👤 Name</span>
+            <strong>{{ profile['name'] }}</strong>
+        </div>
+
+        <div class="profile-detail">
+            <span>🎓 Roll Number</span>
+            <strong>{{ profile['roll_number'] }}</strong>
+        </div>
+
+        <div class="profile-detail">
+            <span>📚 Course</span>
+            <strong>{{ profile['course'] }}</strong>
+        </div>
+
+        <div class="profile-detail">
+            <span>📅 Year</span>
+            <strong>{{ profile['year'] }}</strong>
+        </div>
+
     </div>
 
-    {% if profile %}
-    <div class="card">
-        <h2>✅ Saved Profile</h2>
-        <p><strong>Name:</strong> {{ profile['name'] }}</p>
-        <p><strong>Roll Number:</strong> {{ profile['roll_number'] }}</p>
-        <p><strong>Course:</strong> {{ profile['course'] }}</p>
-        <p><strong>Year:</strong> {{ profile['year'] }}</p>
-    </div>
-    {% endif %}
+</div>
+
+{% endif %}
+
 {% endblock %}
