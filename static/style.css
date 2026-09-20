@@ -329,3 +329,72 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
+/* Study tracker */
+.study-card {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.study-card label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+.study-card input {
+    margin-bottom: 16px;
+}
+
+.study-history {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.study-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8fafc;
+    border: 1px solid #e6ebf0;
+    border-radius: 10px;
+}
+
+.study-item strong {
+    display: block;
+    color: #2c3e50;
+}
+
+.study-item span {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #607080;
+}
+
+.study-hours {
+    font-weight: 700;
+    white-space: nowrap;
+    color: #2980b9;
+}
+
+.empty-message {
+    color: #607080;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .study-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .study-hours {
+        align-self: flex-start;
+    }
+}
