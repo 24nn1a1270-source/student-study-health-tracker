@@ -1,21 +1,61 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="card">
-        <h2>Welcome to Your Student Tracker! 🎓</h2>
-        <p>Track your daily study hours, tasks, water intake, and habits — all in one place.</p>
-        <br>
-        <a href="/dashboard" class="btn">View Dashboard</a>
-    </div>
 
-    <div class="card">
-        <h2>Quick Links</h2>
-        <p>Use the menu above to navigate:</p>
-        <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
-            <li>📖 Study Tracker – Log your daily study sessions</li>
-            <li>✅ To-Do List – Manage your daily tasks</li>
-            <li>💧 Water Tracker – Track your water intake</li>
-            <li>🔥 Habits – Build good daily habits</li>
-        </ul>
+<div class="card">
+    <h2>🎓 Welcome to Student Tracker</h2>
+
+    <p>
+        Organize your studies, tasks, habits, and daily wellness
+        activities — all in one place.
+    </p>
+
+    <br>
+
+    <a href="/dashboard" class="btn">📊 View Dashboard</a>
+</div>
+
+
+<div class="card">
+    <h2>✨ What You Can Track</h2>
+
+    <div class="feature-list">
+
+        <div class="feature-item">
+            <h3>📚 Study</h3>
+            <p>Record your study sessions and monitor your progress.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3>✅ Tasks</h3>
+            <p>Create tasks and mark them as completed.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3>💧 Water</h3>
+            <p>Keep a record of your daily water intake.</p>
+        </div>
+
+        <div class="feature-item">
+            <h3>🔥 Habits</h3>
+            <p>Track your daily habits and completion progress.</p>
+        </div>
+
     </div>
+</div>
+
+
+<div class="card">
+    <h2>🚀 Get Started</h2>
+
+    <p>
+        Start by setting up your student profile and then begin
+        tracking your daily progress.
+    </p>
+
+    <br>
+
+    <a href="/profile" class="btn">👤 Set Up Profile</a>
+</div>
+
 {% endblock %}
