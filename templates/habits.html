@@ -1,31 +1,113 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="card">
-        <h2>🔥 Add New Habit</h2>
-        <form method="POST">
-            <input type="text" name="habit_name" placeholder="e.g. Exercise for 20 mins" required>
-            <button type="submit" class="btn">Add Habit</button>
-        </form>
-    </div>
 
-    <div class="card">
-        <h2>📋 Your Habits</h2>
-        {% if habits %}
+<div class="card habit-card">
+
+    <h2>🔥 Add New Habit</h2>
+
+    <p class="page-description">
+        Create habits and track your daily progress.
+    </p>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="habit_name"
+            placeholder="Example: Read for 20 minutes"
+            required
+        >
+
+        <button type="submit" class="btn">
+            ➕ Add Habit
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Your Habits</h2>
+
+    {% if habits %}
+
+        <div class="habit-list">
+
             {% for habit in habits %}
-                <p style="margin-bottom: 10px;">
+
+            <div class="habit-item {% if habit['done'] == 1 %}habit-completed{% endif %}">
+
+                <div class="habit-content">
+
                     {% if habit['done'] == 1 %}
-                        <span style="text-decoration: line-through; color: gray;">{{ habit['habit_name'] }}</span> ✅
-                        <a href="/habits/reset/{{ habit['id'] }}" style="margin-left: 10px; font-size: 13px;">Reset</a>
+
+                        <span class="habit-text">
+                            {{ habit['habit_name'] }}
+                        </span>
+
+                        <span class="habit-status">
+                            ✅ Completed
+                        </span>
+
                     {% else %}
-                        {{ habit['habit_name'] }}
-                        <a href="/habits/complete/{{ habit['id'] }}" class="btn" style="padding: 4px 10px; font-size: 12px; margin-left: 10px;">Done</a>
+
+                        <span class="habit-text">
+                            {{ habit['habit_name'] }}
+                        </span>
+
                     {% endif %}
-                    <a href="/habits/delete/{{ habit['id'] }}" style="color: red; margin-left: 10px; font-size: 13px;">Delete</a>
-                </p>
+
+                </div>
+
+
+                <div class="habit-actions">
+
+                    {% if habit['done'] == 1 %}
+
+                        <a
+                            href="/habits/reset/{{ habit['id'] }}"
+                            class="reset-link"
+                        >
+                            🔄 Reset
+                        </a>
+
+                    {% else %}
+
+                        <a
+                            href="/habits/complete/{{ habit['id'] }}"
+                            class="btn habit-done-btn"
+                        >
+                            ✓ Done
+                        </a>
+
+                    {% endif %}
+
+                    <a
+                        href="/habits/delete/{{ habit['id'] }}"
+                        class="delete-link"
+                    >
+                        🗑️ Delete
+                    </a>
+
+                </div>
+
+            </div>
+
             {% endfor %}
-        {% else %}
-            <p>No habits yet. Add one above!</p>
-        {% endif %}
-    </div>
+
+        </div>
+
+    {% else %}
+
+        <p class="empty-message">
+            No habits yet. Add your first habit above! 🌱
+        </p>
+
+    {% endif %}
+
+</div>
+
 {% endblock %}
