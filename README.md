@@ -1,58 +1,37 @@
-\# 📚 Student Study \& Health Tracker
+# Student Study & Health Tracker
 
+A web-based student productivity and wellness tracker built using Python, Flask, and SQLite.
 
+## 🚀 Features
 
-A full-stack web application built with \*\*Flask\*\* and \*\*SQLite\*\* that helps B.Tech students track their daily study habits, tasks, water intake, and overall well-being — all in one clean dashboard.
+- 👤 Student profile management
+- 📚 Study session tracking
+- ✅ To-do task management
+- 💧 Daily water intake tracking
+- 🌱 Habit tracking
+- 📊 Dashboard with student progress statistics
+- ✔️ Mark tasks and habits as completed
+- 🗑️ Delete tasks and habits
+- 🔄 Reset habits when needed
+- 💾 SQLite database for storing student data
 
+## 🛠️ Tech Stack
 
+- Python
+- Flask
+- SQLite
+- HTML
+- CSS
+- JavaScript
 
-\## 📝 Description
+## 📂 Project Structure
 
-
-
-Managing academics and health together can be tough for students. This project solves that by providing a single platform where students can log their study sessions, manage tasks, track water intake, build daily habits, and view their overall progress — helping them stay organized, productive, and healthy throughout their college life.
-
-
-
-\## ✨ Features
-
-
-
-\- 🏠 \*\*Home Page\*\* – Clean landing page with quick navigation
-
-\- 👤 \*\*Student Profile\*\* – Store and edit personal academic details
-
-\- 📖 \*\*Study Tracker\*\* – Log daily study sessions with subject, hours, and date
-
-\- ✅ \*\*To-Do List\*\* – Add, complete, and delete daily tasks
-
-\- 💧 \*\*Water Tracker\*\* – Log daily water intake and view history
-
-\- 🔥 \*\*Habit Tracker\*\* – Build and track daily habits with reset option
-
-\- 📊 \*\*Progress Dashboard\*\* – View a summary of study hours, task completion, water average, and habit completion
-
-\- 📱 \*\*Mobile-Friendly Design\*\* – Fully responsive UI that works on any screen size
-
-
-
-\## 🛠️ Technologies Used
-
-
-
-\- \*\*Backend:\*\* Python, Flask
-
-\- \*\*Frontend:\*\* HTML5, CSS3
-
-\- \*\*Database:\*\* SQLite
-
-\- \*\*Version Control:\*\* Git \& GitHub
-
-
-
-\## ⚙️ Installation
-
-
-
-1\. Clone this repository:
-
+```text
+student-tracker/
+│
+├── static/
+├── templates/
+├── app.py
+├── README.md
+├── .gitignore
+└── database.db
