@@ -23,12 +23,49 @@
     <h2>📚 Study</h2>
     <p>Total Study Hours</p>
     <h2>{{ total_study_hours }} hrs</h2>
+
+    <div class="progress-box">
+        <div class="progress-label">
+            <span>Study Progress</span>
+            <span>{{ total_study_hours }} hrs</span>
+        </div>
+
+        <div class="progress-bar">
+            <div
+                class="progress-fill"
+                style="width: {{ [total_study_hours * 10, 100] | min }}%;">
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="card">
     <h2>✅ Tasks</h2>
     <p>Completed Tasks</p>
     <h2>{{ completed_tasks }} / {{ total_tasks }}</h2>
+
+    <div class="progress-box">
+        <div class="progress-label">
+            <span>Task Progress</span>
+
+            {% if total_tasks > 0 %}
+                <span>{{ ((completed_tasks / total_tasks) * 100) | round(0) }}%</span>
+            {% else %}
+                <span>0%</span>
+            {% endif %}
+        </div>
+
+        <div class="progress-bar">
+            <div
+                class="progress-fill"
+                {% if total_tasks > 0 %}
+                    style="width: {{ (completed_tasks / total_tasks * 100) }}%;">
+                {% else %}
+                    style="width: 0%;">
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="card">
@@ -36,12 +73,49 @@
     <p>Average Glasses per Day</p>
     <h2>{{ avg_water }}</h2>
     <p>Total Days Logged: {{ total_water_logs }}</p>
+
+    <div class="progress-box">
+        <div class="progress-label">
+            <span>Daily Water Progress</span>
+            <span>{{ avg_water }} glasses</span>
+        </div>
+
+        <div class="progress-bar">
+            <div
+                class="progress-fill"
+                style="width: {{ [avg_water * 12.5, 100] | min }}%;">
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="card">
     <h2>🔥 Habits</h2>
     <p>Completed Today</p>
     <h2>{{ completed_habits }} / {{ total_habits }}</h2>
+
+    <div class="progress-box">
+        <div class="progress-label">
+            <span>Habit Progress</span>
+
+            {% if total_habits > 0 %}
+                <span>{{ ((completed_habits / total_habits) * 100) | round(0) }}%</span>
+            {% else %}
+                <span>0%</span>
+            {% endif %}
+        </div>
+
+        <div class="progress-bar">
+            <div
+                class="progress-fill"
+                {% if total_habits > 0 %}
+                    style="width: {{ (completed_habits / total_habits * 100) }}%;">
+                {% else %}
+                    style="width: 0%;">
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="card">
