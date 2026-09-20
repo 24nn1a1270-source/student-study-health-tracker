@@ -1,28 +1,80 @@
+
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="card">
-        <h2>💧 Log Water Intake</h2>
-        <form method="POST">
-            <label>Glasses of Water</label>
-            <input type="number" name="glasses" placeholder="e.g. 8" required>
 
-            <label>Date</label>
-            <input type="date" name="date" required>
+<div class="card water-card">
 
-            <br><br>
-            <button type="submit" class="btn">Add Log</button>
-        </form>
-    </div>
+    <h2>💧 Log Water Intake</h2>
 
-    <div class="card">
-        <h2>📊 Water History</h2>
-        {% if logs %}
+    <p class="page-description">
+        Record your daily water intake and keep track of your logged history.
+    </p>
+
+    <form method="POST">
+
+        <label for="glasses">Glasses of Water</label>
+
+        <input
+            type="number"
+            id="glasses"
+            name="glasses"
+            min="0"
+            placeholder="Example: 8"
+            required
+        >
+
+        <label for="date">Date</label>
+
+        <input
+            type="date"
+            id="date"
+            name="date"
+            required
+        >
+
+        <br>
+
+        <button type="submit" class="btn">
+            ➕ Add Water Log
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Water History</h2>
+
+    {% if logs %}
+
+        <div class="water-history">
+
             {% for log in logs %}
-                <p><strong>{{ log['date'] }}</strong> — {{ log['glasses'] }} glasses 💧</p>
+
+            <div class="water-item">
+
+                <div>
+                    <strong>💧 {{ log['glasses'] }} glasses</strong>
+                    <span>{{ log['date'] }}</span>
+                </div>
+
+            </div>
+
             {% endfor %}
-        {% else %}
-            <p>No water logs yet. Add your first one above!</p>
-        {% endif %}
-    </div>
+
+        </div>
+
+    {% else %}
+
+        <p class="empty-message">
+            No water logs yet. Add your first log above! 💧
+        </p>
+
+    {% endif %}
+
+</div>
+
 {% endblock %}

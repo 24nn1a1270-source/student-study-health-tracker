@@ -398,3 +398,46 @@ a:hover {
         align-self: flex-start;
     }
 }
+/* Water tracker */
+.water-card {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.water-card label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+.water-card input {
+    margin-bottom: 16px;
+}
+
+.water-history {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.water-item {
+    padding: 15px;
+    background: #f8fafc;
+    border: 1px solid #e6ebf0;
+    border-radius: 10px;
+}
+
+.water-item strong {
+    display: block;
+    color: #2c3e50;
+}
+
+.water-item span {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #607080;
+}
